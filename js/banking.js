@@ -1,9 +1,28 @@
-document.getElementById('deposit-button').addEventListener('click',function(){
+function getInputvalue (){
     const depositInput = document.getElementById('deposit-input');
     const depositAmountText = depositInput.value;
     const depositAmount =parseFloat(depositAmountText);
-    
+    // clear input value
+    depositInput.value ='';
 
+    return depositAmount;
+}
+
+
+function add(){
+    const cbalance= document.getElementById("c-balance").innerText;
+    const inputValue= document.getElementById("input").value;
+    console.log(cbalance+inputValue)
+    }
+
+
+
+document.getElementById('deposit-button').addEventListener('click',function(){
+    /* const depositInput = document.getElementById('deposit-input');
+    const depositAmountText = depositInput.value;
+    const depositAmount =parseFloat(depositAmountText); */
+    
+    const depositAmount =getInputvalue();
     // get current deposit 
 
     const depositTotal = document.getElementById('deposit-total');
@@ -18,9 +37,7 @@ document.getElementById('deposit-button').addEventListener('click',function(){
     const balanceTotalText=balanceTotal.innerText;
     const  previousBalanceTotal=parseFloat(balanceTotalText);
     balanceTotal.innerText= previousBalanceTotal+depositAmount;
-    // clear input value
-    depositInput.value ='';
-
+    
 
 });
 
@@ -49,4 +66,5 @@ document.getElementById('withdraw-button').addEventListener('click',function(){
     balanceTotal.innerText = previousBalanceTotal-withdrawAmount;
     withdrawInput.value='';
 
-})
+});
+
